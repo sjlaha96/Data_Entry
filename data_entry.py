@@ -1,3 +1,4 @@
+#Adding the required modules
 from tkinter import *
 from tkinter import font
 from tkinter.ttk import Combobox
@@ -14,6 +15,7 @@ root.geometry("700x500+300+200")
 root.resizable(False,False)
 root.config(bg="yellow")
 
+#Creating and Adding data to the xlsx file
 file=pathlib.Path('Data.xlsx')
 if file.exists():
     pass
@@ -27,7 +29,8 @@ else:
     sheet['E1']="ADDRESS"
     
     file.save('Data.xlsx')
-    
+
+#Defining the submit and clear button functions
 def submit():
     name=nameValue.get()
     contact=contactValue.get()
@@ -58,9 +61,11 @@ def clear():
     ageValue.set("")
     addressEntry.delete(1.0,END)
 
+#Adding the icon to the dialogue box
 icon_image=PhotoImage(file="data.png")
 root.iconphoto(False,icon_image)
 
+#Forming the information boxes, where data will be put
 Label(root,text="PLEASE ENTER YOUR DETAILS",font=("arial",15),fg="black",bg="yellow").place(x=215,y=20)
 
 Label(root,text="NAME",font=("arial",17),fg="black",bg="yellow").place(x=20,y=80)
